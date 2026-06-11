@@ -1,21 +1,21 @@
-#include "Header.h"
+ï»¿#include "Header.h"
 
 void TaskTreeWork6() {
     using namespace std;
 
     Tree tree;
 
-    cout << "Âûáåðèòå ñïîñîá ââîäà:\n";
-    cout << "1. Ñëó÷àéíûå ÷èñëà\n";
-    cout << "2. Ââîä ñ êîíñîëè\n";
-    cout << "3. Ââîä èç ôàéëà\n";
-    int choice = Check::check_the_number_in_range("Âàø âûáîð: ", 1, 3);
+    cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ ÑÐ¿Ð¾ÑÐ¾Ð± Ð²Ð²Ð¾Ð´Ð°:\n";
+    cout << "1. Ð¡Ð»ÑƒÑ‡Ð°Ð¹Ð½Ñ‹Ðµ Ñ‡Ð¸ÑÐ»Ð°\n";
+    cout << "2. Ð’Ð²Ð¾Ð´ Ñ ÐºÐ¾Ð½ÑÐ¾Ð»Ð¸\n";
+    cout << "3. Ð’Ð²Ð¾Ð´ Ð¸Ð· Ñ„Ð°Ð¹Ð»Ð°\n";
+    int choice = Check::check_the_number_in_range("Ð’Ð°Ñˆ Ð²Ñ‹Ð±Ð¾Ñ€: ", 1, 3);
 
     switch (choice) {
     case 1: {
-        int n = Check::check_the_number_in_range("Ââåäèòå êîëè÷åñòâî óçëîâ: ", 1, 100);
-        int min_val = Check::check_the_number_in_range("Ââåäèòå ìèíèìàëüíîå çíà÷åíèå: ", -1000, 1000);
-        int max_val = Check::check_the_number_in_range("Ââåäèòå ìàêñèìàëüíîå çíà÷åíèå: ", min_val, 1000);
+        int n = Check::check_the_number_in_range("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑƒÐ·Ð»Ð¾Ð²: ", 1, 100);
+        int min_val = Check::check_the_number_in_range("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ: ", -1000, 1000);
+        int max_val = Check::check_the_number_in_range("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ: ", min_val, 1000);
         tree.input_search_from_random(n, min_val, max_val);
         break;
     }
@@ -24,8 +24,8 @@ void TaskTreeWork6() {
         break;
     case 3: {
         string filename;
-        cout << "Ïåðâîå ÷èñëî ôàéëà. êîë-âî óçëîâ\n";
-        cout << "Ââåäèòå íàçâàíèå ôàéëà: ";
+        cout << "ÐŸÐµÑ€Ð²Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ñ„Ð°Ð¹Ð»Ð°. ÐºÐ¾Ð»-Ð²Ð¾ ÑƒÐ·Ð»Ð¾Ð²\n";
+        cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ñ„Ð°Ð¹Ð»Ð°: ";
         cin >> filename;
         cin.ignore(10000, '\n');
         tree.input_search_from_file(filename);
@@ -34,25 +34,25 @@ void TaskTreeWork6() {
     }
 
     if (!tree.get_root()) {
-        cout << "Îøèáêà: äåðåâî ïóñòîå\n";
+        cout << "ÐžÑˆÐ¸Ð±ÐºÐ°: Ð´ÐµÑ€ÐµÐ²Ð¾ Ð¿ÑƒÑÑ‚Ð¾Ðµ\n";
         return;
     }
-    cout << "ÄÅÐÅÂÎ ÏÎÈÑÊÀ: \n";
+    cout << "Ð”Ð•Ð Ð•Ð’Ðž ÐŸÐžÐ˜Ð¡ÐšÐ: \n";
     tree.print_tree_side();
 
-    cout << "\nÈíôèêñíûé îáõîä (ËÊÏ): ";
+    cout << "\nÐ˜Ð½Ñ„Ð¸ÐºÑÐ½Ñ‹Ð¹ Ð¾Ð±Ñ…Ð¾Ð´ (Ð›ÐšÐŸ): ";
     tree.inorder_print();
     cout << endl;
 
-    cout << "\nÓêàçàòåëü íà êîðåíü äåðåâà: " << tree.get_root() << endl;
-    cout << "Çíà÷åíèå â êîðíå: " << tree.get_root()->key << endl;
+    cout << "\nÐ£ÐºÐ°Ð·Ð°Ñ‚ÐµÐ»ÑŒ Ð½Ð° ÐºÐ¾Ñ€ÐµÐ½ÑŒ Ð´ÐµÑ€ÐµÐ²Ð°: " << tree.get_root() << endl;
+    cout << "Ð—Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð² ÐºÐ¾Ñ€Ð½Ðµ: " << tree.get_root()->key << endl;
 
     int max_val = tree.find_max();
 
-    cout << "\n ÐÅÇÓËÜÒÀÒ: \n";
-    cout << "Ìàêñèìàëüíîå çíà÷åíèå â äåðåâå: " << max_val << endl;
+    cout << "\n Ð Ð•Ð—Ð£Ð›Ð¬Ð¢ÐÐ¢: \n";
+    cout << "ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð² Ð´ÐµÑ€ÐµÐ²Ðµ: " << max_val << endl;
 
-    cout << "\nÄÅÐÅÂÎ ÏÎÈÑÊÀ ïîñëå íàõîæäåíèÿ ìàêñèìóìà (áåç èçìåíåíèé)\n";
+    cout << "\nÐ”Ð•Ð Ð•Ð’Ðž ÐŸÐžÐ˜Ð¡ÐšÐ Ð¿Ð¾ÑÐ»Ðµ Ð½Ð°Ñ…Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ Ð¼Ð°ÐºÑÐ¸Ð¼ÑƒÐ¼Ð° (Ð±ÐµÐ· Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ð¹)\n";
     tree.print_tree_side();
 }
 
@@ -61,17 +61,17 @@ void TaskTreeWork10() {
 
     Tree tree;
 
-    cout << "Âûáåðèòå ñïîñîá ââîäà:\n";
-    cout << "1. Ñëó÷àéíûå ÷èñëà\n";
-    cout << "2. Ââîä ñ êîíñîëè\n";
-    cout << "3. Ââîä èç ôàéëà\n";
-    int choice = Check::check_the_number_in_range("Âàø âûáîð: ", 1, 3);
+    cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ ÑÐ¿Ð¾ÑÐ¾Ð± Ð²Ð²Ð¾Ð´Ð°:\n";
+    cout << "1. Ð¡Ð»ÑƒÑ‡Ð°Ð¹Ð½Ñ‹Ðµ Ñ‡Ð¸ÑÐ»Ð°\n";
+    cout << "2. Ð’Ð²Ð¾Ð´ Ñ ÐºÐ¾Ð½ÑÐ¾Ð»Ð¸\n";
+    cout << "3. Ð’Ð²Ð¾Ð´ Ð¸Ð· Ñ„Ð°Ð¹Ð»Ð°\n";
+    int choice = Check::check_the_number_in_range("Ð’Ð°Ñˆ Ð²Ñ‹Ð±Ð¾Ñ€: ", 1, 3);
 
     switch (choice) {
     case 1: {
-        int n = Check::check_the_number_in_range("Ââåäèòå êîëè÷åñòâî óçëîâ: ", 1, 100);
-        int min_val = Check::check_the_number_in_range("Ââåäèòå ìèíèìàëüíîå çíà÷åíèå: ", -1000, 1000);
-        int max_val = Check::check_the_number_in_range("Ââåäèòå ìàêñèìàëüíîå çíà÷åíèå: ", min_val, 1000);
+        int n = Check::check_the_number_in_range("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑƒÐ·Ð»Ð¾Ð²: ", 1, 100);
+        int min_val = Check::check_the_number_in_range("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ: ", -1000, 1000);
+        int max_val = Check::check_the_number_in_range("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ: ", min_val, 1000);
         tree.input_search_from_random(n, min_val, max_val);
         break;
     }
@@ -80,8 +80,8 @@ void TaskTreeWork10() {
         break;
     case 3: {
         string filename;
-        cout << "Ïåðâîå ÷èñëî ôàéëà. êîë-âî óçëîâ\n";
-        cout << "Ââåäèòå íàçâàíèå ôàéëà: ";
+        cout << "ÐŸÐµÑ€Ð²Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ñ„Ð°Ð¹Ð»Ð°. ÐºÐ¾Ð»-Ð²Ð¾ ÑƒÐ·Ð»Ð¾Ð²\n";
+        cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ñ„Ð°Ð¹Ð»Ð°: ";
         cin >> filename;
         cin.ignore(10000, '\n');
         tree.input_search_from_file(filename);
@@ -90,49 +90,49 @@ void TaskTreeWork10() {
     }
 
     if (!tree.get_root()) {
-        cout << "Îøèáêà: äåðåâî ïóñòîå\n";
+        cout << "ÐžÑˆÐ¸Ð±ÐºÐ°: Ð´ÐµÑ€ÐµÐ²Ð¾ Ð¿ÑƒÑÑ‚Ð¾Ðµ\n";
         return;
     }
 
-    cout << "ÄÅÐÅÂÎ ÏÎÈÑÊÀ äî âñòàâêè:\n";
+    cout << "Ð”Ð•Ð Ð•Ð’Ðž ÐŸÐžÐ˜Ð¡ÐšÐ Ð´Ð¾ Ð²ÑÑ‚Ð°Ð²ÐºÐ¸:\n";
     tree.print_tree_side();
 
-    cout << "\nÈíôèêñíûé îáõîä (ËÊÏ): ";
+    cout << "\nÐ˜Ð½Ñ„Ð¸ÐºÑÐ½Ñ‹Ð¹ Ð¾Ð±Ñ…Ð¾Ð´ (Ð›ÐšÐŸ): ";
     tree.inorder_print();
     cout << endl;
 
-    cout << "\nÓêàçàòåëü íà êîðåíü äåðåâà: " << tree.get_root() << endl;
-    cout << "Çíà÷åíèå â êîðíå: " << tree.get_root()->key << endl;
+    cout << "\nÐ£ÐºÐ°Ð·Ð°Ñ‚ÐµÐ»ÑŒ Ð½Ð° ÐºÐ¾Ñ€ÐµÐ½ÑŒ Ð´ÐµÑ€ÐµÐ²Ð°: " << tree.get_root() << endl;
+    cout << "Ð—Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð² ÐºÐ¾Ñ€Ð½Ðµ: " << tree.get_root()->key << endl;
 
-    int x = Check::check_the_number_simple("Ââåäèòå çíà÷åíèå X äëÿ âñòàâêè: ");
+    int x = Check::check_the_number_simple("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ X Ð´Ð»Ñ Ð²ÑÑ‚Ð°Ð²ÐºÐ¸: ");
     tree.insert_value(x);
 
-    cout << "\n ÐÅÇÓËÜÒÀÒ: \n";
-    cout << "ÄÅÐÅÂÎ ÏÎÈÑÊÀ ïîñëå âñòàâêè\n";
+    cout << "\n Ð Ð•Ð—Ð£Ð›Ð¬Ð¢ÐÐ¢: \n";
+    cout << "Ð”Ð•Ð Ð•Ð’Ðž ÐŸÐžÐ˜Ð¡ÐšÐ Ð¿Ð¾ÑÐ»Ðµ Ð²ÑÑ‚Ð°Ð²ÐºÐ¸\n";
     tree.print_tree_side();
 
-    cout << "\nÈíôèêñíûé îáõîä (ËÊÏ) (ïîñëå âñòàâêè): ";
+    cout << "\nÐ˜Ð½Ñ„Ð¸ÐºÑÐ½Ñ‹Ð¹ Ð¾Ð±Ñ…Ð¾Ð´ (Ð›ÐšÐŸ) (Ð¿Ð¾ÑÐ»Ðµ Ð²ÑÑ‚Ð°Ð²ÐºÐ¸): ";
     tree.inorder_print();
     cout << endl;
 
-    cout << "\nÓêàçàòåëü íà êîðåíü äåðåâà: " << tree.get_root() << endl;
-    cout << "Çíà÷åíèå â êîðíå: " << tree.get_root()->key << endl;
+    cout << "\nÐ£ÐºÐ°Ð·Ð°Ñ‚ÐµÐ»ÑŒ Ð½Ð° ÐºÐ¾Ñ€ÐµÐ½ÑŒ Ð´ÐµÑ€ÐµÐ²Ð°: " << tree.get_root() << endl;
+    cout << "Ð—Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð² ÐºÐ¾Ñ€Ð½Ðµ: " << tree.get_root()->key << endl;
 }
 
 void TaskTreeWork19() {
     using namespace std;
     Tree tree;
-    cout << "Âûáåðèòå ñïîñîá ââîäà:\n";
-    cout << "1. Ñëó÷àéíûé ââîä\n";
-    cout << "2. Ââîä ñ êîíñîëè\n";
-    cout << "3. Ââîä èç ôàéëà\n";
-    int choice = Check::check_the_number_in_range("Âàø âûáîð: ", 1, 3);
+    cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ ÑÐ¿Ð¾ÑÐ¾Ð± Ð²Ð²Ð¾Ð´Ð°:\n";
+    cout << "1. Ð¡Ð»ÑƒÑ‡Ð°Ð¹Ð½Ñ‹Ð¹ Ð²Ð²Ð¾Ð´\n";
+    cout << "2. Ð’Ð²Ð¾Ð´ Ñ ÐºÐ¾Ð½ÑÐ¾Ð»Ð¸\n";
+    cout << "3. Ð’Ð²Ð¾Ð´ Ð¸Ð· Ñ„Ð°Ð¹Ð»Ð°\n";
+    int choice = Check::check_the_number_in_range("Ð’Ð°Ñˆ Ð²Ñ‹Ð±Ð¾Ñ€: ", 1, 3);
 
     switch (choice) {
     case 1: {
-        int count = Check::check_the_number_in_range("Ââåäèòå êîëè÷åñòâî óçëîâ: ", 1, 100);
-        int min_val = Check::check_the_number_in_range("Ââåäèòå ìèíèìàëüíîå çíà÷åíèå: ", -1000, 1000);
-        int max_val = Check::check_the_number_in_range("Ââåäèòå ìàêñèìàëüíîå çíà÷åíèå: ", min_val, 1000);
+        int count = Check::check_the_number_in_range("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑƒÐ·Ð»Ð¾Ð²: ", 1, 100);
+        int min_val = Check::check_the_number_in_range("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ: ", -1000, 1000);
+        int max_val = Check::check_the_number_in_range("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ: ", min_val, 1000);
         tree.input_random(count, min_val, max_val);
         break;
     }
@@ -141,8 +141,8 @@ void TaskTreeWork19() {
         break;
     case 3: {
         string filename;
-        cout << "Ïåðâîå ÷èñëî ôàéëà. êîë-âî óçëîâ\n";
-        cout << "Ââåäèòå íàçâàíèå ôàéëà: ";
+        cout << "ÐŸÐµÑ€Ð²Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ñ„Ð°Ð¹Ð»Ð°. ÐºÐ¾Ð»-Ð²Ð¾ ÑƒÐ·Ð»Ð¾Ð²\n";
+        cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ñ„Ð°Ð¹Ð»Ð°: ";
         cin >> filename;
         cin.ignore(10000, '\n');
         tree.input_from_file(filename);
@@ -151,23 +151,23 @@ void TaskTreeWork19() {
     }
 
     if (!tree.get_root()) {
-        cout << "Îøèáêà: äåðåâî ïóñòîå\n";
+        cout << "ÐžÑˆÐ¸Ð±ÐºÐ°: Ð´ÐµÑ€ÐµÐ²Ð¾ Ð¿ÑƒÑÑ‚Ð¾Ðµ\n";
         return;
     }
 
-    cout << "ÁÈÍÀÐÍÎÅ ÄÅÐÅÂÎ:\n";
+    cout << "Ð‘Ð˜ÐÐÐ ÐÐžÐ• Ð”Ð•Ð Ð•Ð’Ðž:\n";
     tree.print_tree_side();
 
     bool result = tree.is_perfectly_balanced();
 
-    cout << "\n ÐÅÇÓËÜÒÀÒ: \n";
+    cout << "\n Ð Ð•Ð—Ð£Ð›Ð¬Ð¢ÐÐ¢: \n";
     if (result) {
-        cout << "True - äåðåâî ÿâëÿåòñÿ èäåàëüíî-ñáàëàíñèðîâàííûì" << endl;
+        cout << "True - Ð´ÐµÑ€ÐµÐ²Ð¾ ÑÐ²Ð»ÑÐµÑ‚ÑÑ Ð¸Ð´ÐµÐ°Ð»ÑŒÐ½Ð¾-ÑÐ±Ð°Ð»Ð°Ð½ÑÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¼" << endl;
     }
     else {
-        cout << "False - äåðåâî ÍÅ ÿâëÿåòñÿ èäåàëüíî-ñáàëàíñèðîâàííûì" << endl;
+        cout << "False - Ð´ÐµÑ€ÐµÐ²Ð¾ ÐÐ• ÑÐ²Ð»ÑÐµÑ‚ÑÑ Ð¸Ð´ÐµÐ°Ð»ÑŒÐ½Ð¾-ÑÐ±Ð°Ð»Ð°Ð½ÑÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¼" << endl;
     }
 
-    cout << "\nÁÈÍÀÐÍÎÅ ÄÅÐÅÂÎ ïîñëå ïðîâåðêè (áåç èçìåíåíèé)\n";
+    cout << "\nÐ‘Ð˜ÐÐÐ ÐÐžÐ• Ð”Ð•Ð Ð•Ð’Ðž Ð¿Ð¾ÑÐ»Ðµ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ¸ (Ð±ÐµÐ· Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ð¹)\n";
     tree.print_tree_side();
 }

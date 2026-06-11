@@ -1,6 +1,6 @@
-#include "Header.h"
+ï»¿#include "Header.h"
 
-//êëàññ ïðîâåðîê
+//ÐºÐ»Ð°ÑÑ Ð¿Ñ€Ð¾Ð²ÐµÑ€Ð¾Ðº
 bool Check::is_leaf(Node* node) {
     return node && !node->left && !node->right;
 }
@@ -15,7 +15,7 @@ int Check::check_the_number_in_range(const std::string& prompt, int min_value, i
         cout << prompt;
         getline(cin, input);
         if (input.empty()) {
-            cout << "Îøèáêà: ââîä íå ìîæåò áûòü ïóñòûì" << endl;
+            cout << "ÐžÑˆÐ¸Ð±ÐºÐ°: Ð²Ð²Ð¾Ð´ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð¿ÑƒÑÑ‚Ñ‹Ð¼" << endl;
             continue;
         }
 
@@ -28,14 +28,14 @@ int Check::check_the_number_in_range(const std::string& prompt, int min_value, i
         }
 
         if (!is_valid) {
-            cout << "Îøèáêà: ââåäèòå öåëîå ÷èñëî" << endl;
+            cout << "ÐžÑˆÐ¸Ð±ÐºÐ°: Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ†ÐµÐ»Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾" << endl;
             continue;
         }
 
         value = stoi(input);
 
         if (value < min_value || value > max_value) {
-            cout << "Îøèáêà: ÷èñëî äîëæíî áûòü îò " << min_value << " äî " << max_value << endl;
+            cout << "ÐžÑˆÐ¸Ð±ÐºÐ°: Ñ‡Ð¸ÑÐ»Ð¾ Ð´Ð¾Ð»Ð¶Ð½Ð¾ Ð±Ñ‹Ñ‚ÑŒ Ð¾Ñ‚ " << min_value << " Ð´Ð¾ " << max_value << endl;
         }
         else {
             valid_input = true;
@@ -57,7 +57,7 @@ int Check::check_the_number_simple(const std::string& prompt) {
         getline(cin, input);
 
         if (input.empty()) {
-            cout << "Îøèáêà: ââîä íå ìîæåò áûòü ïóñòûì" << endl;
+            cout << "ÐžÑˆÐ¸Ð±ÐºÐ°: Ð²Ð²Ð¾Ð´ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð¿ÑƒÑÑ‚Ñ‹Ð¼" << endl;
             continue;
         }
 
@@ -70,7 +70,7 @@ int Check::check_the_number_simple(const std::string& prompt) {
         }
 
         if (!is_valid) {
-            cout << "Îøèáêà: ââåäèòå öåëîå ÷èñëî" << endl;
+            cout << "ÐžÑˆÐ¸Ð±ÐºÐ°: Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ†ÐµÐ»Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾" << endl;
             continue;
         }
 
@@ -85,11 +85,11 @@ int Check::check_the_number_simple(const std::string& prompt) {
 void Check::check_tree_empty(Node* root) {
     using namespace std;
     if (!root) {
-        cout << "Îøèáêà: äåðåâî ïóñòîå" << endl;
+        cout << "ÐžÑˆÐ¸Ð±ÐºÐ°: Ð´ÐµÑ€ÐµÐ²Ð¾ Ð¿ÑƒÑÑ‚Ð¾Ðµ" << endl;
     }
 }
 
-//êëàññ óçëà
+//ÐºÐ»Ð°ÑÑ ÑƒÐ·Ð»Ð°
 Node::Node(int val) : key(val), left(nullptr), right(nullptr) {}
 
 Node::Node(const Node& other) : key(other.key), left(nullptr), right(nullptr) {
@@ -104,7 +104,7 @@ Node::Node(const Node& other) : key(other.key), left(nullptr), right(nullptr) {
 Node::~Node() {
 }
 
-// êëàññ äåðåâà
+// ÐºÐ»Ð°ÑÑ Ð´ÐµÑ€ÐµÐ²Ð°
 Tree::Tree() : root(nullptr) {}
 
 Tree::Tree(const Tree& other) : root(nullptr) {
@@ -214,17 +214,17 @@ void Tree::input_random(int count, int min_val, int max_val) {
         }
     }
 
-    cout << "Ñëó÷àéíîå äåðåâî ñîçäàíî (" << count << " óçëîâ, äèàïàçîí ["
+    cout << "Ð¡Ð»ÑƒÑ‡Ð°Ð¹Ð½Ð¾Ðµ Ð´ÐµÑ€ÐµÐ²Ð¾ ÑÐ¾Ð·Ð´Ð°Ð½Ð¾ (" << count << " ÑƒÐ·Ð»Ð¾Ð², Ð´Ð¸Ð°Ð¿Ð°Ð·Ð¾Ð½ ["
         << min_val << ", " << max_val << "])\n";
 }
 
 void Tree::input_console() {
     using namespace std;
-    int n = Check::check_the_number_in_range("Ââåäèòå êîëè÷åñòâî óçëîâ: ", 1, 100);
+    int n = Check::check_the_number_in_range("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑƒÐ·Ð»Ð¾Ð²: ", 1, 100);
 
-    cout << "Ââåäèòå " << n << " ÷èñåë:\n";
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ " << n << " Ñ‡Ð¸ÑÐµÐ»:\n";
 
-    string prompt = "  ×èñëî 1: ";
+    string prompt = "  Ð§Ð¸ÑÐ»Ð¾ 1: ";
     int val = Check::check_the_number_simple(prompt);
     root = new Node(val);
 
@@ -232,7 +232,7 @@ void Tree::input_console() {
     nodes.push_back(root);
 
     for (int i = 2; i <= n; i++) {
-        string prompt2 = "  ×èñëî " + to_string(i) + ": ";
+        string prompt2 = "  Ð§Ð¸ÑÐ»Ð¾ " + to_string(i) + ": ";
         int val2 = Check::check_the_number_simple(prompt2);
         Node* new_node = new Node(val2);
 
@@ -268,18 +268,18 @@ void Tree::input_console() {
         }
     }
 
-    cout << "Äåðåâî ñîçäàíî (" << n << " óçëîâ)\n";
+    cout << "Ð”ÐµÑ€ÐµÐ²Ð¾ ÑÐ¾Ð·Ð´Ð°Ð½Ð¾ (" << n << " ÑƒÐ·Ð»Ð¾Ð²)\n";
 }
 
 void Tree::input_from_file(const std::string& filename) {
     using namespace std;
 
-    // Èíèöèàëèçèðóåì ãåíåðàòîð ñëó÷àéíûõ ÷èñåë
+    // Ð˜Ð½Ð¸Ñ†Ð¸Ð°Ð»Ð¸Ð·Ð¸Ñ€ÑƒÐµÐ¼ Ð³ÐµÐ½ÐµÑ€Ð°Ñ‚Ð¾Ñ€ ÑÐ»ÑƒÑ‡Ð°Ð¹Ð½Ñ‹Ñ… Ñ‡Ð¸ÑÐµÐ»
     srand((unsigned int)time(nullptr));
 
     ifstream file(filename);
     if (!file.is_open()) {
-        cout << "Îøèáêà: íå óäàëîñü îòêðûòü ôàéë " << filename << endl;
+        cout << "ÐžÑˆÐ¸Ð±ÐºÐ°: Ð½Ðµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ñ„Ð°Ð¹Ð» " << filename << endl;
         return;
     }
 
@@ -287,7 +287,7 @@ void Tree::input_from_file(const std::string& filename) {
     file >> n;
 
     if (n <= 0) {
-        cout << "Îøèáêà: íåêîððåêòíîå êîëè÷åñòâî óçëîâ" << endl;
+        cout << "ÐžÑˆÐ¸Ð±ÐºÐ°: Ð½ÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð¾Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑƒÐ·Ð»Ð¾Ð²" << endl;
         file.close();
         return;
     }
@@ -301,7 +301,7 @@ void Tree::input_from_file(const std::string& filename) {
 
     for (int i = 2; i <= n; i++) {
         if (!(file >> val)) {
-            cout << "Îøèáêà: íåäîñòàòî÷íî äàííûõ â ôàéëå (îæèäàëîñü " << n << " ÷èñåë)" << endl;
+            cout << "ÐžÑˆÐ¸Ð±ÐºÐ°: Ð½ÐµÐ´Ð¾ÑÑ‚Ð°Ñ‚Ð¾Ñ‡Ð½Ð¾ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð² Ñ„Ð°Ð¹Ð»Ðµ (Ð¾Ð¶Ð¸Ð´Ð°Ð»Ð¾ÑÑŒ " << n << " Ñ‡Ð¸ÑÐµÐ»)" << endl;
             file.close();
             return;
         }
@@ -341,7 +341,7 @@ void Tree::input_from_file(const std::string& filename) {
     }
 
     file.close();
-    cout << "Äåðåâî çàãðóæåíî èç ôàéëà " << filename << " (" << n << " óçëîâ)\n";
+    cout << "Ð”ÐµÑ€ÐµÐ²Ð¾ Ð·Ð°Ð³Ñ€ÑƒÐ¶ÐµÐ½Ð¾ Ð¸Ð· Ñ„Ð°Ð¹Ð»Ð° " << filename << " (" << n << " ÑƒÐ·Ð»Ð¾Ð²)\n";
 }
 
 void Tree::input_search_from_random(int n, int min_val, int max_val) {
@@ -350,7 +350,7 @@ void Tree::input_search_from_random(int n, int min_val, int max_val) {
 
     srand((unsigned int)time(nullptr));
 
-    cout << "Ñëó÷àéíûå ÷èñëà (äèàïàçîí [" << min_val << ", " << max_val << "]): ";
+    cout << "Ð¡Ð»ÑƒÑ‡Ð°Ð¹Ð½Ñ‹Ðµ Ñ‡Ð¸ÑÐ»Ð° (Ð´Ð¸Ð°Ð¿Ð°Ð·Ð¾Ð½ [" << min_val << ", " << max_val << "]): ";
     for (int i = 0; i < n; i++) {
         int val = min_val + rand() % (max_val - min_val + 1);
         cout << val << " ";
@@ -361,12 +361,12 @@ void Tree::input_search_from_random(int n, int min_val, int max_val) {
 
 void Tree::input_search_from_console() {
     using namespace std;
-    int n = Check::check_the_number_in_range("Ââåäèòå êîëè÷åñòâî óçëîâ: ", 1, 100);
+    int n = Check::check_the_number_in_range("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑƒÐ·Ð»Ð¾Ð²: ", 1, 100);
 
-    cout << "Ââåäèòå " << n << " ÷èñåë:\n";
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ " << n << " Ñ‡Ð¸ÑÐµÐ»:\n";
 
     for (int i = 0; i < n; i++) {
-        string prompt = "  ×èñëî " + to_string(i + 1) + ": ";
+        string prompt = "  Ð§Ð¸ÑÐ»Ð¾ " + to_string(i + 1) + ": ";
         int val = Check::check_the_number_simple(prompt);
         add_to_tree(val);
     }
@@ -376,7 +376,7 @@ void Tree::input_search_from_file(const std::string& filename) {
     using namespace std;
     ifstream file(filename);
     if (!file.is_open()) {
-        cout << "Îøèáêà: íå óäàëîñü îòêðûòü ôàéë " << filename << endl;
+        cout << "ÐžÑˆÐ¸Ð±ÐºÐ°: Ð½Ðµ ÑƒÐ´Ð°Ð»Ð¾ÑÑŒ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ñ„Ð°Ð¹Ð» " << filename << endl;
         return;
     }
 
@@ -386,7 +386,7 @@ void Tree::input_search_from_file(const std::string& filename) {
     for (int i = 0; i < n; i++) {
         int val;
         if (!(file >> val)) {
-            cout << "Îøèáêà: íåêîððåêòíûå äàííûå â ôàéëå" << endl;
+            cout << "ÐžÑˆÐ¸Ð±ÐºÐ°: Ð½ÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹Ðµ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð² Ñ„Ð°Ð¹Ð»Ðµ" << endl;
             file.close();
             return;
         }
@@ -394,7 +394,7 @@ void Tree::input_search_from_file(const std::string& filename) {
     }
 
     file.close();
-    cout << "Äåðåâî ïîèñêà çàãðóæåíî èç ôàéëà " << filename << endl;
+    cout << "Ð”ÐµÑ€ÐµÐ²Ð¾ Ð¿Ð¾Ð¸ÑÐºÐ° Ð·Ð°Ð³Ñ€ÑƒÐ¶ÐµÐ½Ð¾ Ð¸Ð· Ñ„Ð°Ð¹Ð»Ð° " << filename << endl;
 }
 
 void Tree::inorder_print() {
@@ -493,7 +493,7 @@ void Tree::insert_value_recursive(Node*& node, int x) {
     }
 }
 
-// Ïðîâåðêà íà èäåàëüíî-ñáàëàíñèðîâàííîå äåðåâî
+// ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° Ð½Ð° Ð¸Ð´ÐµÐ°Ð»ÑŒÐ½Ð¾-ÑÐ±Ð°Ð»Ð°Ð½ÑÐ¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ðµ Ð´ÐµÑ€ÐµÐ²Ð¾
 bool Tree::is_perfectly_balanced() {
     int nodeCount = 0;
     return is_perfectly_balanced_recursive(root, nodeCount);
